@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:meals_app/core/styles/aoo_colors.dart';
+import 'package:meals_app/core/styles/app_colors.dart';
 
 class PrimaryTextField extends StatelessWidget {
   final String? hintText;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meals_app/core/routing/app_routes.dart';
+import 'package:meals_app/features/home_screen/home_screen.dart';
 import 'package:meals_app/features/onboarding/onBoarding_screen.dart';
 
 class RouterGeneratorConfig {
@@ -12,6 +13,13 @@ class RouterGeneratorConfig {
         name: AppRoutes.onBordingScreen,
         builder: (BuildContext context, GoRouterState state) {
           return const OnboardingScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.homeScreen,
+        name: AppRoutes.homeScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const HomeScreen();
         },
       ),
     ],

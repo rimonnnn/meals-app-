@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:meals_app/core/styles/aoo_colors.dart';
+import 'package:meals_app/core/styles/app_colors.dart';
 
 class PrimaryButtonWidget extends StatelessWidget {
   final void Function()? onPress;
