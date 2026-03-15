@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:meals_app/core/styles/aoo_colors.dart';
+import 'package:meals_app/core/styles/app_colors.dart';
 
 class PrimaryTextField extends StatelessWidget {
   final String? hintText;
@@ -9,6 +8,8 @@ class PrimaryTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final int? maxLine;
+  final TextInputType? keyboardType;
   const PrimaryTextField({
     super.key,
     this.hintText,
@@ -16,6 +17,8 @@ class PrimaryTextField extends StatelessWidget {
     this.suffixIcon,
     this.controller,
     this.validator,
+    this.maxLine,
+    this.keyboardType,
   });
 
   @override
@@ -23,14 +26,15 @@ class PrimaryTextField extends StatelessWidget {
     return SizedBox(
       width: 331.w,
       child: TextFormField(
-        
+        keyboardType: keyboardType,
+        maxLines: maxLine ?? 1,
         controller: controller,
         validator: validator,
         cursorColor: AppColors.primaryColor,
         obscureText: isPassword ?? false,
         decoration: InputDecoration(
           filled: true,
-          fillColor: Color(0xffF7F8F9),
+          fillColor: Colors.white,
           contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 12),
           hintText: hintText ?? "",
           hintStyle: TextStyle(
