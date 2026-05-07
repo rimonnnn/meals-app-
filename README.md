@@ -8,19 +8,17 @@ The app is built as a Flutter learning project and focuses on local data storage
 
 ## 📱 App Preview
 
-| Onboarding 1 | Onboarding 2 | Home Screen |
-|-------------|--------------|-------------|
-| <img src="screenshotes/onboarding1.png" width="250"> | <img src="screenshotes/onboarding2.png" width="250"> | <img src="screenshotes/home1.png" width="250"> |
+| Onboarding 1 | Onboarding 2 | Empty Home |
+|-------------|--------------|------------|
+| <img src="screenshotes/onboarding_1.png" width="250"> | <img src="screenshotes/onboarding_2.png" width="250"> | <img src="screenshotes/empty_home_screen.png" width="250"> |
 
-| Home Screen | Add Meal | Add Meal Form |
-|------------|----------|---------------|
-| <img src="screenshotes/home2.png" width="250"> | <img src="screenshotes/add_meal1.png" width="250"> | <img src="screenshotes/add_meal2.png" width="250"> |
+| Home Screen | Add Meal 1 | Add Meal 2 |
+|------------|------------|------------|
+| <img src="screenshotes/home_screen.png" width="250"> | <img src="screenshotes/add_meal_1.png" width="250"> | <img src="screenshotes/add_meal_2.png" width="250"> |
 
 | Meal Details |
 |-------------|
-| <img src="screenshotes/details_screen2.png" width="250"> |
-
-> Make sure the image names match the real files inside the `screenshotes/` folder.
+| <img src="screenshotes/details_screen.png" width="250"> |
 
 ---
 
@@ -68,15 +66,14 @@ Users can add new meals with details, view saved meals, and open a details scree
 dependencies:
   flutter:
     sdk: flutter
-  sqflite:
-  shared_preferences:
-  go_router:
-  flutter_screenutil:
-  carousel_slider:
-  dots_indicator:
+  cupertino_icons: ^1.0.8
+  sqflite: ^2.4.1
+  shared_preferences: ^2.5.3
+  flutter_screenutil: ^5.9.3
+  go_router: ^17.0.0
+  carousel_slider: ^5.1.1
+  dots_indicator: ^4.0.1
 ```
-
-> Check `pubspec.yaml` for the exact package versions.
 
 ---
 
@@ -87,41 +84,56 @@ lib/
 ├── main.dart
 │
 ├── core/
+│   ├── data_base_helper/
+│   │   └── database_helper.dart
+│   │
 │   ├── routing/
-│   │   └── app routing files
+│   │   ├── app_routes.dart
+│   │   └── router_generator_config.dart
 │   │
 │   ├── styles/
-│   │   └── app colors, text styles, and styling files
+│   │   └── app_text_style.dart
 │   │
 │   └── widgets/
-│       └── reusable shared widgets
+│       ├── custom_button_widget.dart
+│       └── spacing_widgets.dart
 │
 └── features/
-    ├── onboarding/
-    │   └── onboarding screens and widgets
+    ├── add_meals_screen/
+    │   ├── add_meals_screen.dart
+    │   └── widgets/
+    │       ├── add_meal_item_widget.dart
+    │       └── custom_text_field_widget.dart
     │
     ├── home_screen/
-    │   └── home screen UI and related widgets
+    │   ├── home_screen.dart
+    │   └── widgets/
+    │       └── home_screen_item.dart
     │
-    ├── add_meal/
-    │   └── add meal screen, form, and logic
+    ├── meals_details_screen/
+    │   └── meals_details_screen.dart
     │
-    └── meal_details/
-        └── meal details screen
+    └── onboarding_screen/
+        ├── onboarding_screen.dart
+        ├── model/
+        │   └── onboarding_model.dart
+        └── widgets/
+            └── onboarding_item.dart
 ```
 
 ---
 
 ## 🏗️ Architecture
 
-The project follows a **Feature-Based Architecture**.
+The project follows a **Feature-Based Architecture** with a shared `core` layer.
 
 ### Core Layer
 
-The `core` folder contains shared code used across the whole application, such as:
+The `core` folder contains shared code used across the whole application:
 
-- App routing
-- Styling files
+- Database helper
+- Routing configuration
+- Shared text styles
 - Reusable widgets
 
 ### Features Layer
@@ -131,7 +143,8 @@ Each feature is separated into its own folder to keep the project clean, readabl
 
 ### Local Storage
 
-The app uses **SQLite** to store meal data locally on the device.  
+The app uses **SQLite** to store meal data locally on the device.
+
 It also uses **SharedPreferences** to save the onboarding state, so the onboarding screens appear only on the first launch.
 
 ---
@@ -144,7 +157,8 @@ Introduces the app using slider screens and page indicators.
 
 ### Home
 
-Displays all saved meals in a clean and simple interface.
+Displays all saved meals in a clean and simple interface.  
+If there are no meals saved yet, the app displays an empty home state.
 
 ### Add Meal
 
