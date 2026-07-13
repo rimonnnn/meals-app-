@@ -13,8 +13,8 @@ class CustomTopHome extends StatelessWidget {
       children: [
         Image.asset(AppAssets.topHomeImage, fit: BoxFit.fill),
         Positioned(
-          top: 30.sp,
-          left: 30.sp,
+          top: 24.sp,
+          left: 24.sp,
           child: Container(
             width: 190.w,
             height: 186.h,
@@ -26,7 +26,9 @@ class CustomTopHome extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               "Welcome Add A New Recipe",
-              style: AppTextStyle.onBoardingTitleStyle,
+              style: AppTextStyle.onBoardingTitleStyle.copyWith(
+                fontSize: 24.sp,
+              ),
             ),
           ),
         ),

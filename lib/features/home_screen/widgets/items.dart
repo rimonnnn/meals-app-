@@ -2,7 +2,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:meals_app/core/styles/app_colors.dart';
 import 'package:meals_app/core/styles/app_text_style.dart';
 import 'package:meals_app/core/widgets/spacing_widgets.dart';
@@ -38,8 +37,8 @@ class Items extends StatelessWidget {
           children: [
             CachedNetworkImage(
               imageUrl: urlImage,
-              width: 137.w,
-              height: 106.h,
+              width: 140.w,
+              height: 100.h,
               fit: BoxFit.fill,
               errorWidget: (context, url, error) =>
                   Icon(Icons.error, color: Colors.red),
